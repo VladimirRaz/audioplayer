@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.obuza.MyModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageButton
+            android:background="@null"
+            android:id="@+id/playImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar"
+            app:srcCompat="@drawable/play_fr"
+            tools:ignore="MissingConstraints"
+            android:onClick="@{() -> viewModel.play()}"/>
+        <ImageButton
+            android:background="@null"
+            android:id="@+id/imageButton10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/playImageButton"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar"
+            app:srcCompat="@drawable/pause"
+            tools:ignore="MissingConstraints"
+            android:onClick="@{() -> viewModel.pause()}"/>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/positionTextView"
+            android:max="@{viewModel.songDuration}"
+            android:progress="@{viewModel.songPosition}"
+             />
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/positionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="00:01"
+            app:ms="@{viewModel.songPosition}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="66dp"
+            tools:layout_editor_absoluteY="532dp" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/durationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="00:02"
+            app:ms="@{viewModel.songDuration}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+/>
+
+        <TextView
+            android:id="@+id/nameSong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Название песни"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@{viewModel.currentSong.name}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

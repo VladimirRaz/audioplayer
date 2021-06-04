@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentAllMusic">
+
+    <fragment
+        android:id="@+id/fragmentFavorite"
+        android:name="com.example.obuza.FragmentFavorite"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_two" />
+    <fragment
+        android:id="@+id/fragmentAllMusic"
+        android:name="com.example.obuza.FragmentAllMusic"
+        android:label="fragment_all_music"
+        tools:layout="@layout/fragment_all_music" />
+    <fragment
+        android:id="@+id/fragmentAlbums"
+        android:name="com.example.obuza.FragmentAlbums"
+        android:label="FragmentAlbums"
+        tools:layout="@layout/fragment_albums"/>
+</navigation>
